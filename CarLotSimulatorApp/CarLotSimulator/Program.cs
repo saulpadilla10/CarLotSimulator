@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CarLotSimulator
 {
@@ -28,6 +29,71 @@ namespace CarLotSimulator
             //It should have at least one property: a List of cars
             //Instanciate the a Carlot at the beginning of the program and as you create a car add the car to the list.
             //At the end iterate through the list printing each of car's Year, Make, and Model to the console
+
+           
+
+            var firstCar = new Car();
+            firstCar.Make = "Kia";
+            firstCar.Model = "Sephia";
+            firstCar.Year = 2003;
+            firstCar.EngineNoise = "Pooooooop";
+            firstCar.HonkNoise = "Wah-Wah!";
+            firstCar.IsDriveable = false;
+
+            Console.WriteLine($"{firstCar.Make} {firstCar.Model} {firstCar.Year} {firstCar.EngineNoise} {firstCar.HonkNoise} {firstCar.IsDriveable}");
+
+            Console.WriteLine();
+
+            var secondCar = new Car()
+            {
+                Make = "Hyundai",
+                Model = "Tiburon GT",
+                Year = 2008,
+                EngineNoise = "Vroooooom!",
+                HonkNoise = "Veeeeep!",
+                IsDriveable = true
+            };
+
+            Console.WriteLine($"{secondCar.Make} {secondCar.Model} {secondCar.Year} {secondCar.EngineNoise} {secondCar.HonkNoise} {secondCar.IsDriveable}");
+
+            Console.WriteLine();
+
+            var thirdCar = new Car("Jeep", "Compass", 2008, "Zzzz", "Heeeee!", true);
+
+            Console.WriteLine($"{thirdCar.Make} {thirdCar.Model} {thirdCar.Year} {thirdCar.EngineNoise} {thirdCar.HonkNoise} {thirdCar.IsDriveable}");
+
+            Console.WriteLine();
+
+            firstCar.MakeEngineNoise(firstCar.EngineNoise);
+
+            firstCar.MakeHonkNoise(firstCar.HonkNoise);
+
+            Console.WriteLine();
+
+            secondCar.MakeEngineNoise(secondCar.EngineNoise);
+
+            secondCar.MakeHonkNoise(secondCar.HonkNoise);
+
+            Console.WriteLine();
+
+            thirdCar.MakeEngineNoise(thirdCar.EngineNoise);
+
+            thirdCar.MakeHonkNoise(thirdCar.HonkNoise);
+
+            Console.WriteLine();
+
+            var list = new CarLot();
+
+            list.Carlist.Add(firstCar);
+
+            list.Carlist.Add(secondCar);
+
+            list.Carlist.Add(thirdCar);
+
+            foreach (var car in list.Carlist)
+            {
+                Console.WriteLine($"Make: {car.Make}. Model: {car.Model}. Year: {car.Year}. Goes: {car.EngineNoise}. Honker: {car.HonkNoise}. Works? {car.IsDriveable}.");
+            }
         }
     }
 }
