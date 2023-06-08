@@ -94,6 +94,10 @@ namespace CarLotSimulator
             {
                 Console.WriteLine($"Make: {car.Make}. Model: {car.Model}. Year: {car.Year}. Goes: {car.EngineNoise}. Honker: {car.HonkNoise}. Works? {car.IsDriveable}.");
             }
+
+            Console.WriteLine($"Cars: {CarLot.numberOfCars}");
+
+
         }
     }
 }
